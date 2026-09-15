@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Header, HTTPException
+fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 import os, requests
@@ -34,3 +34,4 @@ def chat(req: ChatRequest, x_api_key: str = Header(None)):
         return {"reply": ai_reply, "model": "Bharat-AI x Gemini"}
     except Exception as e:
         return {"reply": f"AI Error: {str(e)}", "status": "error"}
+    
