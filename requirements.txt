@@ -1,4 +1,6 @@
-from fastapi import FastAPI, Header, HTTPException
+fastapi
+uvicorn
+pydanticfrom fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI(title="Bharat-Api")
