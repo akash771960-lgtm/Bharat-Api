@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 app = FastAPI(title="Bharat-Api")
 
-# Teri API ki Chabhi - Isko bechna hai 10000 me
 MY_SECRET_KEY = "BHARAT-10000-KEY"
 
 class ChatRequest(BaseModel):
@@ -16,6 +15,5 @@ def home():
 @app.post("/api/chat")
 def chat(req: ChatRequest, x_api_key: str = Header(None)):
     if x_api_key != MY_SECRET_KEY:
-        raise HTTPException(status_code=401, detail="Galat API Key! Paise do tab milegi.")
-    
-    return {"reply": f"Bharat-Api ka Jawab: Aapne bola '{req.message}'"}
+        raise HTTPException(status_code=401, detail="Galat API Key")
+    return {"reply": f"Bharat-Api ka Jawab: Aapne bola {req.message}"}
